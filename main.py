@@ -33,3 +33,5 @@ while True:
 
         if resultado is not None:
             frases = resultado['text']
+            print(frases)
+            sintese_voz(frases)
