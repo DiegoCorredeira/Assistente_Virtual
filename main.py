@@ -1,6 +1,7 @@
 import speech_recognition as sr
 from vosk import Model, KaldiRecognizer
-import os, sys
+import os
+import sys
 import pyaudio
 
 model = Model('model')
