@@ -24,7 +24,7 @@ stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, fram
 stream.start_stream()
 
 while True:
-    pack = stream.read(4000)
+    pack = stream.read(4800)
     if len(pack) == 0:
         break
     if gravacao.AcceptWaveform(pack):
