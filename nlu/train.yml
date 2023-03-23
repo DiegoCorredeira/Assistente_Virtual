@@ -1,0 +1,21 @@
+commands:
+  - comando:
+    input: que horas são
+    entidade: time
+    acao: retornar_hora
+  - comando:
+    input: como você se chama
+    entidade: str
+    acao: retornar_nome
+  - comando:
+    input: previsao do tempo para hoje
+    entidade: tempo
+    acao: retornar_temperatura
+  - comando:
+    input: abrir youtube
+    entidade: open
+    acao: ''
+  - comando: abrir_youtube
+    input: abrir google
+    entidade: open
+    acao: abrir_google

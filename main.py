@@ -1,8 +1,21 @@
-import speech_recognition as sr
 from vosk import Model, KaldiRecognizer
 import os
 import sys
 import pyaudio
+import pyttsx3
+import json
+import core
+
+engine = pyttsx3.init()
+
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+
+
+def sintese_voz(frases):
+    engine.say(frases)
+    engine.runAndWait()
+
 
 model = Model('model')
 gravacao = KaldiRecognizer(model, 16000)
@@ -12,16 +25,20 @@ stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, fram
 stream.start_stream()
 
 while True:
-    pack = stream.read(4000)
+    pack = stream.read(16000)
     if len(pack) == 0:
         break
     if gravacao.AcceptWaveform(pack):
-        print(gravacao.Result())
-    else:
-        print(gravacao.PartialResult())
+        resultado = gravacao.Result()
+        resultado = json.loads(resultado)
 
-r = sr.Recognizer()
-with sr.Microphone() as source:
-    while True:
-        audio = r.listen(source)
-        print(r.recognize_google(audio, language="pt-BR", show_all=False))
+        if resultado is not None:
+            frases = resultado['text']
+            print(frases)
+
+            if frases == 'me informe as horas' or frases == 'que horas são':
+                sintese_voz(core.InformacaodoSistema.retornar_hora())
+            if frases == 'qual é o seu nome' or frases == 'como você se chama':
+                sintese_voz(core.InformacaodoSistema.retornar_nome())
+            if frases == 'alice':
+                sintese_voz(core.InformacaodoSistema.retornar_saudacao())
