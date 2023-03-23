@@ -40,5 +40,5 @@ while True:
                 sintese_voz(core.InformacaodoSistema.retornar_hora())
             if frases == 'qual é o seu nome' or frases == 'como você se chama':
                 sintese_voz(core.InformacaodoSistema.retornar_nome())
-            if frases == 'que dia é hoje':
-                sintese_voz(core.InformacaodoSistema.retornar_dia())
+            if frases == 'alice':
+                sintese_voz(core.InformacaodoSistema.retornar_saudacao())

@@ -17,3 +17,9 @@ class InformacaodoSistema:
         nome = 'Alice'
         resposta = f'Meu nome é {nome}, como posso ajudar?'
         return resposta
+
+    @staticmethod
+    def retornar_saudacao():
+        resposta = f'Olá! Como posso ajudar?'
+        return resposta
+
