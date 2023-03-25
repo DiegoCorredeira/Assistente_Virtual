@@ -1,21 +1,46 @@
 commands:
+  # Hora
   - comando:
-    input: que horas são
+    input:  Que horas são
     entidade: time
     acao: retornar_hora
   - comando:
-    input: como você se chama
-    entidade: str
-    acao: retornar_nome
+    input:  Me diga as horas.
+    entidade: time
+    acao: retornar_hora
+  # Data
   - comando:
-    input: previsao do tempo para hoje
-    entidade: tempo
+    input:  Que dia é hoje?
+    entidade: time
+    acao: retornar_data
+  - comando:
+    input:  Data de hoje.
+    entidade: time
+    acao: retornar_data
+  # Tempo
+  - comando:
+    input:  Previsão do tempo
+    entidade: weather
     acao: retornar_temperatura
   - comando:
-    input: abrir youtube
+    input:  Como está o clima?
+    entidade: weather
+    acao: retornar_temperatura
+  # Name
+  - comando:
+    input: Como você se chama
+    entidade: name
+    acao: retornar_nome
+  - comando:
+    input: Qual é seu nome?
+    entidade: name
+    acao: retornar_nome
+  # Open
+  - comando:
+    input:  Abrir google
     entidade: open
-    acao: ''
-  - comando: abrir_youtube
-    input: abrir google
+    acao:
+  - comando:
+    input:  Abra youtube
     entidade: open
-    acao: abrir_google
+    acao:
